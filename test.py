@@ -13,7 +13,7 @@ def transcribe():
         while True:
             try:
                 audio = recognizer.listen(source)
-                text = recognizer.recognize_google(audio, language="tr-TR")
+                text = recognizer.recognize_google(audio, language="en-US")
                 print("Siz:", text)
                 translated_text = translate(text)
                 print("Çeviri:", translated_text)
@@ -25,7 +25,7 @@ def transcribe():
 def translate(text: str):
     translator = deepl.Translator(AUTH_KEY)
 
-    return translator.translate_text(text, target_lang="EN-US").text
+    return translator.translate_text(text, target_lang="TR").text
 
 def main_menu():
     while True:
